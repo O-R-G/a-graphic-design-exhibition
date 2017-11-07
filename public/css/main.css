@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'utopian';
+    src: url('Utopian-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'neeta';
+    src: url('neeta.init-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  /*width: 100%;
+  height: 100%;*/
+  background-color: black;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.hide-video {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Video Stuff */
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.videos {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.video {
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.videoWrapper {
+  pointer-events: none;
+
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Content */
+.asterisk {
+  font-family: 'neeta';
+  font-size: 60px;
+
+  top: 20px;
+  right: 20px;
+  position: fixed;
+  z-index: 1000;
+
+  color: white;
+
+}
+
+.asterisk:hover {
+  color: black;
+}
+
+.about-the-show {
+  display: none;
+
+  font-family: 'neeta';
+  font-size: 24px;
+  line-height: 1.4em;
+  color: white;
+
+  width: 1000px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 100px;
+  /*top: 20px;
+  left: 20px;
+  position: fixed;
+  z-index: 1000;*/
+
+  /*height: 100%;
+  overflow: scroll;*/
+
+}
+
+.david {
+  font-family: 'grotesque_mtbold';
+}
