@@ -9,9 +9,10 @@ app.get('/', function (req, res) {
   res.send(staticDir + 'index.html')
 })
 
-app.get('/timestamps', function (req, res) {
-  var timestamps = {'vis215': 1, 'vis216': 2, 'vis415': 3}
-  res.json(timestamps)
+app.get('/timestamp/:courseID', function (req, res) {
+  var courseID = req.params.courseID;
+  var ret = {"time": Math.round(Math.random()*100)};
+  res.json(ret)
 })
 
 var port = process.env.PORT || 3000;
