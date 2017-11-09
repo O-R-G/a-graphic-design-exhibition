@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'neeta';
+    src: url('neeta.init-regular.woff2') format('woff2'),
+         url('neeta.init-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'utopian';
+    src: url('utopian-regular.woff2') format('woff2'),
+         url('utopian-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
