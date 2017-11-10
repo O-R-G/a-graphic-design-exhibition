@@ -1,7 +1,8 @@
 (function() {
   var start = true;
+  var ready = false;
   $('body').click(function() {
-    if (start) {
+    if (start && ready) {
       start = false;
       $('#read-more').toggleClass('hide-more');
       $('#read-more').toggleClass('show-more');
@@ -75,6 +76,7 @@
 
   var player215, player216, player415;
   window.onYouTubeIframeAPIReady = function() {
+      ready = true;
       player215 = new YT.Player('vis215', {
         events: {
           'onReady': function(event) {
