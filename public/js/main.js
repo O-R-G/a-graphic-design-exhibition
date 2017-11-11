@@ -46,6 +46,7 @@
   $('#students-show').click(function() {
     $('#description').hide();
     $('#students').show();
+     $(window).scrollTop(0);
   });
 
   $('#colophon-show').click(function() {
