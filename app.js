@@ -23,10 +23,13 @@ app.get('/timestamp/:courseID', function (req, res) {
   switch (courseID) {
     case 'vis215':
       ts = vis215;
+      break;
     case 'vis216':
       ts = vis216;
+      break;
     case 'vis415':
       ts = vis415;
+      break;
   }
 
   var nowTime = Math.round(new Date().getTime()/1000);
