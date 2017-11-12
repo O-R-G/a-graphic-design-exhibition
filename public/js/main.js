@@ -4,10 +4,13 @@
   $('body').click(function() {
     if (start && ready) {
       start = false;
-      setTimeout(function() { $('#read-more').toggleClass('hide-text'); }, 10000);
+      setTimeout(function() {
+        $('#read-more').toggleClass('hide-text');
+        $('.videoWrapper').toggleClass('active');
+        }, 10000);
       $('.videos').toggleClass('hide-videos');
       $('.videos').toggleClass('show-videos');
-      $('.videoWrapper').toggleClass('active');
+
 
       playVideo('vis215');
       playVideo('vis216');
