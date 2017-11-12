@@ -38,18 +38,6 @@ body {
 
 }
 
-.hide-more {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.show-more {
-  opacity: 1;
-  pointer-events: auto;
-  -webkit-transition: opacity 0s;
-  transition: opacity 0s;
-  transition-delay: 5s;
-}
 
 /* Video Stuff */
 .videos {
@@ -74,11 +62,6 @@ body {
 
 .active {
   pointer-events: auto;
-}
-
-.hide-video {
-  pointer-events: none;
-  opacity: 0;
 }
 
 .videoWrapper {
@@ -114,6 +97,32 @@ body {
   padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 100px;
+}
+
+@keyframes dots-1 { from { opacity: 0; } 25% { opacity: 1; } }
+@keyframes dots-2 { from { opacity: 0; } 50% { opacity: 1; } }
+@keyframes dots-3 { from { opacity: 0; } 75% { opacity: 1; } }
+@-webkit-keyframes dots-1 { from { opacity: 0; } 25% { opacity: 1; } }
+@-webkit-keyframes dots-2 { from { opacity: 0; } 50% { opacity: 1; } }
+@-webkit-keyframes dots-3 { from { opacity: 0; } 75% { opacity: 1; } }
+
+.dots {
+  font-family: 'grotesque_mtbold';
+}
+
+.dots span {
+    animation: dots-1 3s infinite steps(1);
+    -webkit-animation: dots-1 3s infinite steps(1);
+}
+
+.dots span:first-child + span {
+    animation-name: dots-2;
+    -webkit-animation-name: dots-2;
+}
+
+.dots span:first-child + span + span {
+    animation-name: dots-3;
+    -webkit-animation-name: dots-3;
 }
 
 #students {
@@ -160,7 +169,6 @@ a:visited {
     flex-direction: row;
   }
 
-  .about-the-show {
-    /*font-size: 54px;*/
-  }
+  .videoWrapper iframe {
+    pointer-events: none;
 }
