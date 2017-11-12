@@ -2,7 +2,6 @@
   var start = true;
   var ready = false;
   $('body').click(function() {
-    console.log('click');
     if (start && ready) {
       start = false;
       setTimeout(function() { $('#read-more').toggleClass('hide-text'); }, 10000);
