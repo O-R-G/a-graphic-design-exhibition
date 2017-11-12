@@ -1,25 +1,18 @@
 (function() {
   var start = true;
-  var allReady = false;
+  var ready = false;
   $('body').click(function() {
     console.log('click');
-    if (start && allReady) {
+    if (start && ready) {
       start = false;
       setTimeout(function() { $('#read-more').toggleClass('hide-text'); }, 10000);
-
       $('.videos').toggleClass('hide-videos');
       $('.videos').toggleClass('show-videos');
       $('.videoWrapper').toggleClass('active');
 
-      if (player215) {
-        player215.playVideo();
-      }
-      if (player216) {
-        player216.playVideo();
-      }
-      if (player415) {
-        player415.playVideo();
-      }
+      playVideo('vis215');
+      playVideo('vis216');
+      playVideo('vis415');
     }
   })
   // Content toggle
@@ -69,56 +62,32 @@
   });
 
   // Setup jump to
+  function playVideo(id) {
+    var player = new YT.Player(id, {
+      events: {
+        'onReady': function(event) {
+          setTime(event, id);
+        },
+        'onStateChange': function(state) {
+          stateChange(state, id);
+        }
+      }});
+  }
+
   function setTime(event, id) {
     $.get('/timestamp/' + id, function(data) {
-      event.target.playVideo(); // double play
+      event.target.playVideo();
       event.target.seekTo(data.time);
-      console.log('ready');
-      ready[id] = true;
-      checkReady();
     });
   }
 
-  function checkReady() {
-    if (ready.vis215 && ready.vis216 && ready.vis415) {
-      console.log('all ready');
-      allReady = true;
-      $('.dots').hide();
+  function stateChange(state, id) {
+    if (state.data !== YT.PlayerState.PLAYING) {
+      state.target.playVideo();
     }
   }
 
-  function stateChange(state, id) {
-    if (state.data == YT.PlayerState.PLAYING) {
-      console.log('playing ' + id);
-    }
-  }
-  var ready = {
-    'vis215': false,
-    'vis216': false,
-    'vis415': false
-  };
-  var player215, player216, player415;
   window.onYouTubeIframeAPIReady = function() {
-      player215 = new YT.Player('vis215', {
-        events: {
-          'onReady': function(event) {
-            setTime(event, 'vis215');
-          },
-          'onStateChange': function(state) {
-            stateChange(state, 'vis215');
-          }
-        }});
-      player216 = new YT.Player('vis216', {
-        events: {
-          'onReady': function(event) {
-            setTime(event, 'vis216');
-          }
-        }});
-      player415 = new YT.Player('vis415', {
-          events: {
-            'onReady': function(event) {
-              setTime(event, 'vis415');
-            }
-          }});
+    ready = true;
   }
 })();
