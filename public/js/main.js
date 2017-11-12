@@ -8,8 +8,9 @@
         $('#read-more').toggleClass('hide-text');
         $('.videoWrapper').toggleClass('active');
         }, 10000);
-      $('.videos').toggleClass('hide-videos');
-      $('.videos').toggleClass('show-videos');
+      $('.title').show();
+      $('iframe').toggleClass('hide-videos');
+      $('iframe').toggleClass('show-videos');
 
 
       playVideo('vis215');
