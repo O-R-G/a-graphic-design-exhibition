@@ -141,6 +141,10 @@ iframe {
 #students {
   line-height: 1.0em;
 }
+
+#vislogo {
+  text-align: right;
+}
 .hide-text {
   display: none;
 }

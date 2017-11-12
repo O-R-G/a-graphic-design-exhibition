@@ -7,9 +7,9 @@ app.use(express.static(staticDir))
 // time calculator
 var startTime = 1510695000; // Tuesday, November 14, 2017 4:30:00 PM GMT-05:00
 
-var vis215 = 2425; // t-y-p-o-g-r-a-p-h-y seconds
-var vis216 = 5010; // g-e-s-t-a-l-t seconds
-var vis415 = 2673; // i-n-t-e-r-f-a-c-e seconds
+var vis215 = 2424; // t-y-p-o-g-r-a-p-h-y seconds
+var vis216 = 5009; // g-e-s-t-a-l-t seconds
+var vis415 = 2672; // i-n-t-e-r-f-a-c-e seconds
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
@@ -33,7 +33,7 @@ app.get('/timestamp/:courseID', function (req, res) {
 
   if (nowTime < startTime) {
     // Temp start time so that it doesn't go backwards
-    startTime = 1510416671 // Saturday, November 11, 2017 11:11:11 AM GMT-05:00
+    startTime = 1510416671; // Saturday, November 11, 2017 11:11:11 AM GMT-05:00
   }
   var time = Math.abs(nowTime - startTime)%ts;
 
