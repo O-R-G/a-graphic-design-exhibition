@@ -96,7 +96,7 @@ iframe {
 
 .about-the-show {
   font-family: 'neeta';
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1.4em;
   color: white;
 
@@ -151,7 +151,7 @@ iframe {
 
 .david {
   font-family: 'grotesque_mtbold';
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .lily {
@@ -159,7 +159,7 @@ iframe {
 }
 
 .link {
-  border-bottom: 3px solid white;
+  border-bottom: 2px solid white;
 }
 .link:hover {
   cursor: pointer;
@@ -174,7 +174,7 @@ a:visited {
   color: white;
 }
 
-@media (max-width: 1024px) {
+@media (max-device-width : 736px) and (orientation : portrait) {
   .videos {
     flex-direction: column;
     position: static;
@@ -188,4 +188,16 @@ a:visited {
 
   .videoWrapper iframe {
     pointer-events: none;
-}
+  }
+
+  .about-the-show {
+    font-size: 24px;
+  }
+
+  .david {
+    font-size: 22px;
+  }
+
+  .link {
+    border-bottom: 3px solid white;
+  }
