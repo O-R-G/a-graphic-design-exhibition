@@ -1,7 +1,10 @@
 (function() {
   var start = true;
   var ready = false;
-  $('body').click(function() {
+  $('body').click(go);
+  $('.about-the-show').click(go);
+  
+  function go() {
     if (start && ready) {
       start = false;
       setTimeout(function() {
@@ -12,12 +15,11 @@
       $('iframe').toggleClass('hide-videos');
       $('iframe').toggleClass('show-videos');
 
-
       playVideo('vis215');
       playVideo('vis216');
       playVideo('vis415');
     }
-  })
+  }
   // Content toggle
   $('#read-more').click(function() {
     $('.videos').hide();
