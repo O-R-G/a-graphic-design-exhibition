@@ -7,7 +7,7 @@ app.use(express.static(staticDir))
 // time calculator
 var startTime = 1510695000; // Tuesday, November 14, 2017 4:30:00 PM GMT-05:00
 
-var vis215 = 2424; // t-y-p-o-g-r-a-p-h-y seconds
+var vis215 = 2454; // t-y-p-o-g-r-a-p-h-y seconds
 var vis216 = 5009; // g-e-s-t-a-l-t seconds
 var vis415 = 2672; // i-n-t-e-r-f-a-c-e seconds
 
