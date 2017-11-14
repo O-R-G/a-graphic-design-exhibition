@@ -1,5 +1,4 @@
 $(function() {
-  // console.log('ready');
   var start = true;
   var ready = false;
 
@@ -8,6 +7,10 @@ $(function() {
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  window.onYouTubeIframeAPIReady = function() {
+    ready = true;
+  }
 
   $('body').click(go);
   $('.about-the-show').click(go);
@@ -98,9 +101,5 @@ $(function() {
     if (state.data !== YT.PlayerState.PLAYING) {
       state.target.playVideo();
     }
-  }
-
-  window.onYouTubeIframeAPIReady = function() {
-    ready = true;
   }
 });
