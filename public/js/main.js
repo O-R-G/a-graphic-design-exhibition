@@ -1,9 +1,11 @@
-(function() {
+var ready = false;
+
+$(function() {
+  // console.log('ready');
   var start = true;
-  var ready = false;
   $('body').click(go);
   $('.about-the-show').click(go);
-  
+
   function go() {
     if (start && ready) {
       start = false;
@@ -92,7 +94,8 @@
     }
   }
 
-  window.onYouTubeIframeAPIReady = function() {
-    ready = true;
-  }
-})();
+});
+
+window.onYouTubeIframeAPIReady = function() {
+  ready = true;
+}
