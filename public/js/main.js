@@ -1,8 +1,14 @@
-var ready = false;
-
 $(function() {
-  console.log('ready');
+  // console.log('ready');
   var start = true;
+  var ready = false;
+
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
   $('body').click(go);
   $('.about-the-show').click(go);
 
@@ -94,8 +100,7 @@ $(function() {
     }
   }
 
+  window.onYouTubeIframeAPIReady = function() {
+    ready = true;
+  }
 });
-
-window.onYouTubeIframeAPIReady = function() {
-  ready = true;
-}
