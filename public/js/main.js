@@ -1,7 +1,7 @@
 var ready = false;
 
 $(function() {
-  // console.log('ready');
+  console.log('ready');
   var start = true;
   $('body').click(go);
   $('.about-the-show').click(go);
