@@ -33,11 +33,6 @@ app.get('/timestamp/:courseID', function (req, res) {
   }
 
   var nowTime = Math.round(new Date().getTime()/1000);
-
-  if (nowTime < startTime) {
-    // Temp start time so that it doesn't go backwards
-    startTime = 1510416671; // Saturday, November 11, 2017 11:11:11 AM GMT-05:00
-  }
   var time = Math.abs(nowTime - startTime)%ts;
 
   var ret = {"time": time};
