@@ -15,6 +15,32 @@ $(function() {
   $('body').click(go);
   $('.about-the-show').click(go);
 
+  var loc = window.location;
+  console.log(loc.hash);
+
+  switch (loc.hash) {
+    case '#about':
+      readMore();
+      break;
+    case '#students':
+      readMore();
+      showStudents();
+      break;
+    case '#colophon':
+      readMore();
+      showColophon();
+      break;
+  }
+
+  function setHash(hash) {
+    if(history.pushState) {
+      history.pushState(null, null, hash);
+    }
+    else {
+      location.hash = hash;
+    }
+  }
+
   function go() {
     if (start && ready) {
       start = false;
@@ -31,15 +57,17 @@ $(function() {
       playVideo('vis415');
     }
   }
-  // Content toggle
-  $('#read-more').click(function() {
+
+  function readMore() {
     $('.videos').hide();
     $('#full-text').show();
     $('#read-more').hide();
     $('#read-less').show();
-  });
 
-  $('#read-less').click(function() {
+    setHash('#about');
+  }
+
+  function readLess() {
     $('.videos').show();
     $('#description').show();
 
@@ -50,18 +78,33 @@ $(function() {
     $('#students').hide();
     $('#colophon').hide();
     $('#read-less').hide();
-  });
 
-  $('#students-show').click(function() {
+    setHash('/');
+  }
+
+  function showStudents() {
     $('#description').hide();
     $('#students').show();
      $(window).scrollTop(0);
-  });
 
-  $('#colophon-show').click(function() {
+     setHash('#students');
+  }
+
+  function showColophon() {
     $('#description').hide();
     $('#colophon').show();
-  });
+
+    setHash('#colophon');
+  }
+
+  // Content toggle
+  $('#read-more').click(readMore);
+
+  $('#read-less').click(readLess);
+
+  $('#students-show').click(showStudents);
+
+  $('#colophon-show').click(showColophon);
 
   // Video fullscreen
   $('.videoWrapper').click(function() {
