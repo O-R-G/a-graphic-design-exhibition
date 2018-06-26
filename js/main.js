@@ -91,9 +91,10 @@ $(function() {
   }
 
   function setTime(event, id) {
-    $.get('/timestamp/' + id, function(data) {
+    $.get('/timestamp.php?courseID=' + id, function(data) {
+      var parsed = JSON.parse(data)
       event.target.playVideo();
-      event.target.seekTo(data.time);
+      event.target.seekTo(parsed.time);
     });
   }
 
